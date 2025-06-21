@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VR2N – Redefining Data Confidence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .button:hover {
+      background: #2563eb;
+    }
+
+    section {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature-card {
+      flex: 1 1 280px;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+
+    footer {
+      background: #e2e8f0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: "✓ ";
+      color: var(--primary);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.25rem; }
+      .features { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Empowering Data Confidence</h1>
+    <p>At VR2N, we build intelligent tools that turn messy data into actionable trust.</p>
+    <a href="https://datumsync.vr2n.com" class="button">Explore DatumSync</a>
+  </header>
+
+  <section>
+    <h2>About VR2N</h2>
+    <p>VR2N is a data engineering company focused on building high-performance, trust-first tools for analysts, engineers, and decision-makers. Our mission is simple: to eliminate bad data from critical processes.</p>
+  </section>
+
+  <section>
+    <h2>Our Product: DatumSync</h2>
+    <p>DatumSync is our flagship platform designed to clean, validate, and transform your data in real time. From data onboarding to live prediction, DatumSync simplifies the complexity behind enterprise-scale pipelines.</p>
+    <div class="features">
+      <div class="feature-card">
+        <h3>📦 Normalize</h3>
+        <p>Unify schema, fix inconsistencies, and make your datasets usable in minutes.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🧠 Validate</h3>
+        <p>Apply intelligent rules to catch invalid entries, missing data, and logic errors early.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Predict</h3>
+        <p>Leverage built-in ML to assess risk, classify records, or forecast outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Teams Choose Us</h2>
+    <ul>
+      <li>Secure-by-default architecture on GCP</li>
+      <li>Built by analysts with enterprise needs in mind</li>
+      <li>Support for Parquet, CSV, Excel, and time series</li>
+      <li>Seamless integration with Render, Pub/Sub, and Databricks</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:hello@vr2n.com">hello@vr2n.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/company/vr2n">linkedin.com/company/vr2n</a></p>
+    <p>GitHub: <a href="https://github.com/vr2n">github.com/vr2n</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 VR2N Technologies. Built with 💡 in India.
+  </footer>
+
+</body>
+</html>
