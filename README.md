@@ -1,2 +1,2 @@
-# vr2n_website
+# vr2n
 Company profile
