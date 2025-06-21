@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VR²N – Redefining Data Confidence</title>
-  <meta name="description" content="VR²N builds intelligent data tools for validation, normalization, prediction and trust.">
-  <meta property="og:title" content="VR²N – Redefining Data Confidence">
-  <meta property="og:description" content="Intelligent tools to clean, validate, and predict from your data.">
+  <title>VR²N – Automated Data Confidence</title>
+  <meta name="description" content="VR²N turns messy enterprise data into trusted insights through validation, normalization, and prediction.">
+  <link rel="canonical" href="https://datumsync.vr2n.com">
+  <meta property="og:title" content="VR²N – Automated Data Confidence">
+  <meta property="og:description" content="Data tools for quality, observability, and ML readiness.">
   <meta property="og:image" content="https://datumsync.vr2n.com/og-image.png">
   <meta property="og:url" content="https://datumsync.vr2n.com">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --primary: #3b82f6;
@@ -23,7 +23,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--light);
@@ -32,19 +31,27 @@
     }
 
     header {
-      background: var(--dark);
+      background: linear-gradient(to right, #0f172a, #1e293b);
       color: white;
-      padding: 100px 20px 60px;
+      padding: 100px 20px 80px;
       text-align: center;
     }
+    header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
     header h1 {
-      font-size: 3rem;
+      font-size: 2.75rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
     header p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: #cbd5e1;
+      max-width: 640px;
+      margin: 0 auto;
     }
     .button {
       display: inline-block;
@@ -73,32 +80,48 @@
       color: var(--dark);
     }
 
-    p {
-      font-size: 1.1rem;
-      color: var(--gray);
-      margin-bottom: 1.25rem;
-    }
-
     .features {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      margin-top: 1.5rem;
     }
-
     .feature-card {
       flex: 1 1 280px;
       background: white;
       border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 24px;
+      transition: transform 0.2s ease;
     }
-
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
     .feature-card h3 {
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .feature-card p {
+      color: var(--gray);
+    }
+
+    .stats {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .stat-block {
+      text-align: center;
+    }
+    .stat-block h3 {
+      font-size: 1.75rem;
+      color: var(--primary);
+    }
+    .stat-block p {
+      color: var(--gray);
     }
 
     footer {
@@ -108,87 +131,57 @@
       font-size: 0.9rem;
       color: #475569;
     }
-
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li::before {
-      content: "✓ ";
-      color: var(--primary);
-      font-weight: bold;
-      margin-right: 8px;
-    }
-
     @media (max-width: 600px) {
-      header h1 { font-size: 2.25rem; }
+      header h1 { font-size: 2rem; }
       .features { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Empowering Data Confidence</h1>
-      <img src="logo.jpg" alt="VR²N Logo" style="width:160px; height:auto; margin-bottom: 20px;">
-    <p>At VR²N, we build intelligent tools that turn messy data into actionable trust.</p>
+    <img src="logo.jpg" alt="VR²N Logo" loading="lazy">
+    <h1>Automated Data Confidence</h1>
+    <p>VR²N helps companies trust their data by cleaning, validating, and monitoring in real time.</p>
     <a href="https://datumsync.vr2n.com" class="button">Explore DatumSync</a>
   </header>
 
   <section>
-    <h2>About VR²N</h2>
-    <p>VR²N is a data engineering company focused on building high-performance, trust-first tools for analysts, engineers, and decision-makers. Our mission is simple: to eliminate bad data from critical processes.</p>
-  </section>
-
-  <section>
-    <h2>Our Product: DatumSync</h2>
-    <p>DatumSync is our flagship platform designed to clean, validate, and transform your data in real time. From data onboarding to live prediction, DatumSync simplifies the complexity behind enterprise-scale pipelines.</p>
-    <div class="features">
-      <div class="feature-card">
-        <h3><i class="fas fa-box"></i> Normalize</h3>
-        <p>Unify schema, fix inconsistencies, and make your datasets usable in minutes.</p>
+    <h2>Trusted at Scale</h2>
+    <div class="stats">
+      <div class="stat-block">
+        <h3>500K+</h3>
+        <p>Rows validated daily</p>
       </div>
-      <div class="feature-card">
-        <h3><i class="fas fa-check-circle"></i> Validate</h3>
-        <p>Apply intelligent rules to catch invalid entries, missing data, and logic errors early.</p>
+      <div class="stat-block">
+        <h3>99.9%</h3>
+        <p>Accuracy across pipelines</p>
       </div>
-      <div class="feature-card">
-        <h3><i class="fas fa-chart-line"></i> Predict</h3>
-        <p>Leverage built-in ML to assess risk, classify records, or forecast outcomes.</p>
+      <div class="stat-block">
+        <h3>10+</h3>
+        <p>Teams onboarded in &lt;3 days</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Trusted by Data Teams</h2>
+    <h2>What We Offer</h2>
     <div class="features">
       <div class="feature-card">
-        <h3>📈 500K+</h3>
-        <p>Records validated daily through DatumSync</p>
+        <h3>Normalize</h3>
+        <p>Unify and structure messy datasets within minutes.</p>
       </div>
       <div class="feature-card">
-        <h3>⚙️ 99.9%</h3>
-        <p>Data accuracy maintained across pipelines</p>
+        <h3>Validate</h3>
+        <p>Detect missing, malformed, or incorrect records automatically.</p>
       </div>
       <div class="feature-card">
-        <h3>🌍 10+</h3>
-        <p>Global teams onboarded in &lt; 3 days</p>
+        <h3>Predict</h3>
+        <p>Use ML to score risk, tag records, or trigger alerts.</p>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h2>Why Teams Choose Us</h2>
-    <ul>
-      <li>Secure-by-default architecture on GCP</li>
-      <li>Built by analysts with enterprise needs in mind</li>
-      <li>Support for Parquet, CSV, Excel, and time series</li>
-      <li>Seamless integration with Render, Pub/Sub, and Databricks</li>
-    </ul>
   </section>
 
   <section>
@@ -199,8 +192,7 @@
   </section>
 
   <footer>
-    &copy; 2025 VR²N Technologies. Built with 💡 in India.
+    &copy; 2025 VR²N Technologies. Built with trust in India.
   </footer>
-
 </body>
 </html>
