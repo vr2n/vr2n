@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VR²N – Automated Data Confidence</title>
+  <meta name="robots" content="index, follow">
+  <title>VR²N – Redefining Data Confidence</title>
   <meta name="description" content="VR²N turns messy enterprise data into trusted insights through validation, normalization, and prediction.">
   <link rel="canonical" href="https://datumsync.vr2n.com">
   <meta property="og:title" content="VR²N – Automated Data Confidence">
   <meta property="og:description" content="Data tools for quality, observability, and ML readiness.">
-  <meta property="og:image" content="https://datumsync.vr2n.com/og-image.png">
+  <meta property="og:image" content="og-image.png">
   <meta property="og:url" content="https://datumsync.vr2n.com">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #3b82f6;
       --dark: #0f172a;
       --light: #f8fafc;
-      --gray: #64748b;
+      --gray: #475569;
       --radius: 10px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--light);
@@ -36,23 +47,27 @@
       padding: 100px 20px 80px;
       text-align: center;
     }
+
     header img {
       width: 100px;
       height: auto;
       margin-bottom: 20px;
-      border-radius: 10px;
+      border-radius: var(--radius);
     }
+
     header h1 {
       font-size: 2.75rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
+
     header p {
       font-size: 1.2rem;
       color: #cbd5e1;
       max-width: 640px;
       margin: 0 auto;
     }
+
     .button {
       display: inline-block;
       margin-top: 2rem;
@@ -62,8 +77,9 @@
       border-radius: var(--radius);
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
     }
+
     .button:hover {
       background: #2563eb;
     }
@@ -78,6 +94,7 @@
       font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--dark);
+      text-align: center;
     }
 
     .features {
@@ -86,22 +103,26 @@
       gap: 20px;
       margin-top: 1.5rem;
     }
+
     .feature-card {
       flex: 1 1 280px;
       background: white;
       border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       padding: 24px;
       transition: transform 0.2s ease;
     }
+
     .feature-card:hover {
       transform: translateY(-6px);
     }
+
     .feature-card h3 {
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
       color: var(--primary);
     }
+
     .feature-card p {
       color: var(--gray);
     }
@@ -113,13 +134,16 @@
       margin: 40px 0;
       flex-wrap: wrap;
     }
+
     .stat-block {
       text-align: center;
     }
+
     .stat-block h3 {
       font-size: 1.75rem;
       color: var(--primary);
     }
+
     .stat-block p {
       color: var(--gray);
     }
@@ -129,44 +153,57 @@
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
-      color: #475569;
+      color: var(--gray);
     }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      .features { flex-direction: column; }
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .features {
+        flex-direction: column;
+      }
+
+      .stats {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="VR²N Logo" loading="lazy">
-    <h1>Automated Data Confidence</h1>
+    <img src="logo.jpg" alt="VR²N Logo" loading="lazy" title="VR²N Logo">
+    <h1>Redefining Data Confidence</h1>
     <p>VR²N helps companies trust their data by cleaning, validating, and monitoring in real time.</p>
     <a href="https://datumsync.vr2n.com" class="button">Explore DatumSync</a>
   </header>
 
-  <section>
+  <section id="scale">
     <h2>Trusted at Scale</h2>
     <div class="stats">
       <div class="stat-block">
-        <h3>500K+</h3>
+        <h3>1K+</h3>
         <p>Rows validated daily</p>
       </div>
       <div class="stat-block">
         <h3>99.9%</h3>
         <p>Accuracy across pipelines</p>
       </div>
-      <div class="stat-block">
-        <h3>10+</h3>
-        <p>Teams onboarded in &lt;3 days</p>
-      </div>
     </div>
   </section>
 
-  <section>
+  <section id="features">
     <h2>What We Offer</h2>
     <div class="features">
       <div class="feature-card">
@@ -184,11 +221,11 @@
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:hello@vr2n.com">hello@vr2n.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/company/vr2n">linkedin.com/company/vr2n</a></p>
-    <p>GitHub: <a href="https://github.com/vr2n">github.com/vr2n</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/company/vr2n" target="_blank" rel="noopener">linkedin.com/company/vr2n</a></p>
+    <p>GitHub: <a href="https://github.com/vr2n" target="_blank" rel="noopener">github.com/vr2n</a></p>
   </section>
 
   <footer>
