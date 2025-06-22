@@ -5,7 +5,7 @@
 <h1 align="center">🚀 DatumSync by VR²N</h1>
 
 <p align="center"><em>
-Eliminate bad data. Build real confidence.
+Redefining Data Confidence.
 </em></p>
 
 ---
