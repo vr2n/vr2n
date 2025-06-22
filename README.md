@@ -1,5 +1,15 @@
-# 🚀 DatumSync
-🔗 Visit us at [https://vr2n.com](https://vr2n.com)
+<p align="center">
+  <img src="logo.jpg" alt="VR²N Logo" width="200"/>
+</p>
+
+<h1 align="center">🚀 DatumSync by VR²N</h1>
+
+<p align="center"><em>
+Eliminate bad data. Build real confidence.
+</em></p>
+
+---
+## 🔗 Visit us at [https://vr2n.com](https://vr2n.com)
 
 **DatumSync** is an intelligent, automated data pipeline platform developed by [VR²N](https://github.com/vr2n) to streamline large-scale data processing. Built with modular architecture and cloud-native design, it supports:
 
