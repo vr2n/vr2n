@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Conversion | DatumSync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+          * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2em;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* User Info Dropdown */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #1e3a8a;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  font-weight: 600;
+  color: #111;
+}
+
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.75rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #1e3a8a;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* Conversion Box */
+.conversion-box.unified {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  border-radius: 16px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 20px auto;
+  max-width: 1100px;
+  align-self: center;
+}
+
+.conversion-info,
+.conversion-form {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.conversion-info h2,
+.conversion-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #1e3a8a;
+}
+
+.conversion-info ul {
+  list-style: disc inside;
+  color: #333;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+
+.conversion-info li {
+  margin-bottom: 10px;
+}
+
+/* Form Elements */
+.conversion-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.conversion-form label {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.conversion-form input[type="file"],
+.conversion-form select {
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.conversion-form select option {
+  color: #000;
+}
+
+.conversion-form button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.conversion-form button:hover {
+  background-color: #2563eb;
+}
+
+/* Typography & Link */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9em;
+  color: #777;
+  padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>DatumSync</h2>
+    <a href="/dashboard">Dashboard Overview</a>
+    <a href="/validate">Validation</a>
+    <a href="/normalize">Normalization</a>
+    <a class="active" href="/convert">Conversion</a>
+    <a href="/predict">Prediction</a>
+    <a href="/profile">Data Profiling</a>
+    <a href="/reports">Reports</a>
+    <a href="/subscription">Subscription</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Conversion Module</h1>
+      <div class="user-info">
+        {% if user and user.get('picture') %}
+          <img src="{{ user['picture'] }}" alt="User Avatar">
+        {% endif %}
+        <div class="user-name-dropdown">
+          <span class="dropdown-toggle" onclick="toggleDropdown()">
+            {{ user['name'] if user and user.get('name') else 'User' }}
+          </span>
+          <div class="dropdown-menu" id="userDropdown">
+            <a href="/settings">Account Settings</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <main>
+  <div class="conversion-box unified">
+    <div class="conversion-info">
+      <h2>CSV to Parquet / JSON Transformation</h2>
+      <ul>
+        <li>Upload and convert files from CSV to Parquet or JSON format</li>
+        <li>Supports multi-file batch processing</li>
+        <li>Seamlessly integrates with cloud storage</li>
+      </ul>
+      <p class="back-link">Ensure your CSV is validated before transformation.</p>
+    </div>
+
+    <div class="conversion-form">
+      <h2>Upload File for Conversion</h2>
+      <form action="/convert-file" method="POST" enctype="multipart/form-data">
+        <label for="convertFile">Upload CSV File:</label>
+        <input type="file" id="convertFile" name="convert_file" accept=".csv" required>
+
+        <label for="format">Select Output Format:</label>
+        <select id="format" name="format" required>
+          <option value="">-- Choose Format --</option>
+          <option value="parquet">Parquet</option>
+          <option value="json">JSON</option>
+          <option value="csv">CSV</option>
+          <option value="excel">Excel</option>
+        </select>
+
+        <button type="submit" class="profile-button">Convert File</button>
+      </form>
+    </div>
+  </div>
+</main>
+    <footer>
+      &copy; 2025 DatumSync by Shubham Singh
+    </footer>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById('userDropdown');
+      menu.classList.toggle('show');
+    }
+
+    window.addEventListener('click', function (event) {
+      if (!event.target.closest('.user-name-dropdown')) {
+        const dropdown = document.getElementById("userDropdown");
+        dropdown?.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>

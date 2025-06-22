@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscription | DatumSync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+  color: #111;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #fff;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+/* Main Layout */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.header h1 {
+  font-size: 2em;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Profile Dropdown */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #1e3a8a;
+  cursor: pointer;
+}
+
+.user-name-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.75rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #1e3a8a;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Plans Section */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.plans {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.plan {
+  background: #ffffff;
+  border: 1px solid #1e3a8a;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.plan:hover {
+  transform: scale(1.03);
+}
+
+.plan h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #3b82f6;
+}
+
+.plan p {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.plan ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Button */
+.btn-subscribe {
+  background: #1e3a8a;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.btn-subscribe:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>DatumSync</h2>
+    <a href="/dashboard">Dashboard Overview</a>
+    <a href="/validate">Validation</a>
+    <a href="/normalize">Normalization</a>
+    <a href="/convert">Conversion</a>
+    <a href="/predict">Prediction</a>
+    <a href="/profile">Data Profiling</a>
+    <a href="/reports">Reports</a>
+    <a href="/subscription">Subscription</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Subscription</h1>
+      <div class="user-info">
+        {% if user and user.get('picture') %}
+          <img src="{{ user['picture'] }}" alt="User Avatar">
+        {% endif %}
+        <div class="user-name-dropdown">
+          <span class="dropdown-toggle" onclick="toggleDropdown()">
+            {{ user['name'] if user and user.get('name') else 'User' }}
+          </span>
+          <div class="dropdown-menu" id="userDropdown">
+            <a href="/settings">Account Settings</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Choose Your Plan</h1>
+      <div class="plans">
+        <div class="plan">
+          <h2>Free</h2>
+          <p>₹0/month</p>
+          <ul>
+            <li>5 Validations / day</li>
+            <li>Basic File Support</li>
+            <li>Community Support</li>
+          </ul>
+          <a href="#" class="btn-subscribe">Current Plan</a>
+        </div>
+
+        <div class="plan">
+          <h2>Pro</h2>
+          <p>₹499/month</p>
+          <ul>
+            <li>Unlimited Validations</li>
+            <li>Prediction + Profiling</li>
+            <li>Email Reports</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="/subscribe/pro" class="btn-subscribe">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById('userDropdown');
+      menu.classList.toggle('show');
+    }
+
+    window.addEventListener('click', function(event) {
+      if (!event.target.closest('.user-name-dropdown')) {
+        document.getElementById("userDropdown")?.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

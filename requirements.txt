@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+jinja2
+authlib
+python-dotenv
+itsdangerous
+gunicorn
+httpx
+sqlalchemy
+psycopg2-binary
+google-cloud-storage
+python-multipart
+requests
+pandas
+pyarrow
+stripe

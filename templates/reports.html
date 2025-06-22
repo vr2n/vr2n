@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports | DatumSync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: #fff;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+    }
+
+    /* Main Layout */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-x: auto;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      background: linear-gradient(to right, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Profile Dropdown */
+    .profile-dropdown {
+      position: relative;
+    }
+
+    .profile-button {
+      background: #fff;
+      border: 1px solid #1e3a8a;
+      color: #1e3a8a;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .profile-button:hover {
+      background-color: #1e3a8a;
+      color: #fff;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #1e3a8a;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .profile-dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Main Table Panel */
+    main {
+      background-color: #ffffff;
+      padding: 40px;
+      margin: 20px;
+      border-radius: 16px;
+      max-width: 95%;
+      align-self: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #1e3a8a;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95em;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f9fafb;
+    }
+
+    /* Table Actions */
+    .actions a {
+      color: #3b82f6;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: 500;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    /* User Info Avatar */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #1e3a8a;
+      cursor: pointer;
+    }
+
+    /* Username Dropdown */
+    .user-name-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .dropdown-toggle::after {
+      content: " ▼";
+      font-size: 0.75rem;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      min-width: 160px;
+      z-index: 100;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #1e3a8a;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>DatumSync</h2>
+    <a href="/dashboard">Dashboard Overview</a>
+    <a href="/validate">Validation</a>
+    <a href="/normalize">Normalization</a>
+    <a href="/convert">Conversion</a>
+    <a href="/predict">Prediction</a>
+    <a href="/profile">Data Profiling</a>
+    <a class="active" href="/reports">Reports</a>
+    <a href="/subscription">Subscription</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Reports</h1>
+      <div class="user-info">
+        {% if user and user.get('picture') %}
+          <img src="{{ user['picture'] }}" alt="User Avatar">
+        {% endif %}
+        <div class="user-name-dropdown">
+          <span class="dropdown-toggle" onclick="toggleDropdown()">
+            {{ user['name'] if user and user.get('name') else 'User' }}
+          </span>
+          <div class="dropdown-menu" id="userDropdown">
+            <a href="/settings">Account Settings</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+  </div>
+    </div>
+
+        <main>
+      <h2 class="text-xl font-bold mb-4">Auto-generated Reports History</h2>
+      <table class="w-full bg-white rounded shadow overflow-hidden">
+        <thead class="bg-gray-100 text-left">
+          <tr>
+            <th class="p-3">File Name</th>
+            <th class="p-3">Module</th>
+            <th class="p-3">Status</th>
+            <th class="p-3">Timestamp</th>
+            <th class="p-3">Uploaded By</th>
+            <th class="p-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in history %}
+          <tr class="border-b hover:bg-gray-50">
+            <td class="p-3 truncate">{{ report.file.split('/')[-1] }}</td>
+            <td class="p-3">{{ report.module }}</td>
+            <td class="p-3">{{ '✅ Completed' if report.status == 'success' else '⚠️ Failed' }}</td>
+            <td class="p-3">{{ report.created_at.strftime('%Y-%m-%d %H:%M') if report.created_at else '—' }}</td>
+            <td class="p-3">{{ report.email }}</td>
+            <td class="p-3 space-x-2">
+              <a href="{{ report.view }}" class="text-blue-600 hover:underline">View</a>
+              <a href="/download/json/{{ report.id }}" class="text-green-600 hover:underline">JSON</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </main>
+     
+    <footer>
+      &copy; 2025 DatumSync by Shubham Singh
+    </footer>
+  </div>
+    <script>
+      function toggleDropdown() {
+        var menu = document.getElementById('userDropdown');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+
+      window.addEventListener('click', function(event) {
+        if (!event.target.closest('.user-name-dropdown')) {
+          var dropdown = document.getElementById("userDropdown");
+          if (dropdown && dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+          }
+        }
+      });
+    </script>
+</body>
+</html>

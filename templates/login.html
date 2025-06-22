@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | DatumSync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f1f5f9, #e2e8f0);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .login-container h1 {
+      font-size: 1.75rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .login-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #4285F4;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .login-btn:hover {
+      background-color: #3367D6;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--gray);
+      width: 100%;
+    }
+
+    @media (max-height: 600px) {
+      footer {
+        position: static;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+
+      .login-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Login to DatumSync</h1>
+    <a class="login-btn" href="/login">Sign in with Google</a>
+  </div>
+
+  <footer>
+    &copy; 2025 DatumSync by Shubham Singh
+  </footer>
+
+</body>
+</html>
